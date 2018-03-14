@@ -10,11 +10,18 @@
   <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
 
-  <script src="http://localhost:3003/bundle.js"></script>
+  <script src="/overview/bundle.js"></script>
+  <script src="/recommendations/bundle.js"></script>
+  <script src="/reviews/bundle.js"></script>
+  <script src="/nearby/bundle.js"></script>
+  <script src="/q-and-a/bundle.js"></script>
 </head>
 <body>
-  <h1>~~~ Proxy server ~~~</h1>
+  <div id='overview'></div>
+  <div id='recommendations'></div>
+  <div id='reviews'></div>
   <div id='nearby'></div>
+  <div id='q-and-a'></div>
 
   <script>
     let id =
@@ -25,8 +32,24 @@
       );
 
     ReactDOM.render(
+      React.createElement(Overview, {id: id}, null),
+      document.getElementById('overview')
+    );
+    ReactDOM.render(
+      React.createElement(Recommendation, {id: id}, null),
+      document.getElementById('recommendations')
+    );
+    ReactDOM.render(
+      React.createElement(Reviews, {id: id}, null),
+      document.getElementById('reviews')
+    );
+    ReactDOM.render(
       React.createElement(Nearby, {id: id}, null),
       document.getElementById('nearby')
+    );
+    ReactDOM.render(
+      React.createElement(QAndA, {id: id}, null),
+      document.getElementById('q-and-a')
     );
   </script>
 </body>
